@@ -2,11 +2,11 @@
 // https://github.com/acidanthera/OpenCorePkg/tree/master/Docs/AcpiSamples/Source/Sample.dsl
 DefinitionBlock ("", "SSDT", 2, "DRTNIA", "AMDGPU", 0x00001000)
 {
-    External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.PEG0.PEGP, DeviceObj)
+    External (_SB_.PC00, DeviceObj)
+    External (_SB_.PC00.PEG1.PEGP, DeviceObj)
 
 
-    Scope (\_SB_.PCI0.PEG0.PEGP)
+    Scope (\_SB_.PC00.PEG1.PEGP)
     {
         if (_OSI ("Darwin"))
         {
@@ -25,7 +25,7 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "AMDGPU", 0x00001000)
                     "model",
                     Buffer ()
                     {
-                        "AMD Radeon R9 390"
+                        "AMD Radeon RX 580"
                     }
                 }
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -33,7 +33,7 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "AMDGPU", 0x00001000)
             }
         }
     }
-    Scope (\_SB.PCI0)
+    Scope (\_SB.PC00)
     {                   
         Method (DTGP, 5, NotSerialized)
         {
